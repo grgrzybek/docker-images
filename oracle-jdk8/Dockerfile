@@ -1,7 +1,7 @@
 FROM docker.io/fedora:22
 MAINTAINER Grzegorz Grzybek <gr.grzybek@gmail.com>
 RUN groupadd -g 22693 ggrzybek && useradd -u 22693 -g ggrzybek ggrzybek
-RUN dnf install -y tar telnet unzip which wget && \
+RUN dnf install -y tar telnet unzip which wget procps-ng iproute net-tools && \
     dnf clean all -y
 RUN wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz -O /home/ggrzybek/jdk-8u60-linux-x64.tar.gz
 RUN wget http://archive.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz -O /home/ggrzybek/apache-maven-3.3.3-bin.tar.gz
